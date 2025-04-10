@@ -21,7 +21,7 @@ print(menor_a_60)
 print("\n")
 
 ### Sin embargo solo queremos cambiar los 3 primeros por lo que acortaremos el array para recuperar las posiciones 0,1 y 2 usando slicing
-### Dado que el resultado de where es una tupla incluimos un indice 0 antes de tomar los indices de 0 a 2 en el interior de la tupla
+### Dado que el resultado de where es una tupla de un solo elemento incluimos un indice 0 antes de tomar los indices de 0 a 2 en el interior de la tupla
 cambiar_a_0 = menor_a_60[0][:3] 
 print("Estos cambiaran a 0")
 print(cambiar_a_0)
