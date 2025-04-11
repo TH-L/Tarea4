@@ -43,7 +43,11 @@ for i in range(len(locs)):
     ## Definimos el peso del pez que ya se encuentra en el tanque, sera cero si la poscion esta vacia
     peso_pos =tanque[pos[0], pos[1], pos[2]]
     
-    # Verificamos si la posicion a desplazarse en el tanque esta vacia
+    # Verificamos si el pez salio de rango, en cuyo caso estaria muerto por salir del agua
+    if (pos[0] > 4 or pos[1] > 4 or pos[2] >4):
+        muertos.add(peso_actual)
+    
+    # Ahora verificamos si la posicion a desplazarse en el tanque esta vacia
     if peso_pos == 0:
         ### Si esta vacia asignamos el peso_actual del pez a esa celda del tanque
         tanque[pos[0], pos[1], pos[2]] = peso_actual
@@ -59,9 +63,9 @@ for i in range(len(locs)):
             ### Si el pez que ya se encontraba en la celda es mayor o igual se comera al nuevo pez, 
             ### Mantendra su posicion y el pez actual se agrega al conjunto de pesos muertos
             muertos.add(peso_actual)
+            
 ### Una vez que se haya concluido con el desplazamiento de los peces se obtienen los peces que no esten el set muertos,
 ### Es decir los que sobrevivieron:
-
 sobrevivientes = sobrevivientes = [i for i in range(len(weights)) if weights[i] not in muertos]
 
 print("Estos peces sobrevivieron:")
